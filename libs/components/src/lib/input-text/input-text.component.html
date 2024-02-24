@@ -1,0 +1,25 @@
+<div [formGroup]="form">
+	<div *ngIf="disabled; then other_content; else content"></div>
+
+	<ng-template #content>
+    <mat-form-field class="form-field w-100 organize-input" appearance="outline">
+      <mat-label>
+        {{ label }}
+      </mat-label>
+			<input matInput [formControlName]="controlName" [value]="value" [maxlength]="maxlength" [required]="required()" [readonly]="readonly" />
+			<mat-error *ngIf="form.get(controlName)?.touched && form.get(controlName)?.invalid">
+				<span class="feedback danger" role="alert">
+					<i class="fas fa-times-circle" aria-hidden="true"></i>
+					Preenchimento obrigatório
+				</span>
+			</mat-error>
+		</mat-form-field>
+	</ng-template>
+
+	<ng-template #other_content>
+    <mat-form-field class="form-field w-100" appearance="outline">
+      <mat-label>{{ label }}</mat-label>
+			<input matInput disabled [value]="value" />
+		</mat-form-field>
+	</ng-template>
+</div>

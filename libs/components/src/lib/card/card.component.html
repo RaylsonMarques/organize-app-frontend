@@ -1,0 +1,9 @@
+<div class="card">
+	<div class="card-header card-header-iti">
+		<h4 class="card-title">{{ titulo }}</h4>
+		<p class="card-category" *ngIf="descricao !== null || descricao !== ''">{{ descricao }}</p>
+	</div>
+	<div class="card-body">
+		<ng-content></ng-content>
+	</div>
+</div>

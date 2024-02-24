@@ -1,0 +1,47 @@
+<!-- Form login -->
+<!-- Form to create a new account -->
+<header class="sign-in_header">
+	<div class="sign-in_header__card-info">
+		<h2 class="text-header-title">{{ signInTranslate[language].title }}</h2>
+		<p class="text-header-description">{{ signInTranslate[language].description }}</p>
+	</div>
+</header>
+
+<main class="sign-in_content">
+<section class="sign-in_content__section">
+	<form [formGroup]="form" (submit)="submit()">
+		<div class="row">
+			<organize-input-text
+				[form]="form"
+				controlName="access"
+				[label]="signInTranslate[language].access_label"
+				[value]="form.get('access').value"
+				(keyup)="validateTypeAccess($event)"
+				class="col-12 mb-1"
+			></organize-input-text>
+
+			<!-- Password field -->
+			<organize-input-password
+				[form]="form"
+				controlName="password"
+				[label]="signInTranslate[language].password"
+				[value]="form.get('password').value"
+				class="col-12"
+			></organize-input-password>
+		</div>
+
+		<div class="sign-in_content__section__buttons">
+			<button class="button button-block button-confirmation-fill" type="submit" [disabled]="buttonDisabled()">{{ signInTranslate[language].button_confirm }}</button>
+			<p>{{ signInTranslate[language].already_member }}</p>
+
+			<button
+				class="button button-block button-apresentation-outline-light"
+				type="button"
+				(click)="redirect(routerEnum.SIGN_UP)"
+			>{{ signInTranslate[language].button_sign_up }}</button>
+
+			<button class="button button-block button-cancel-outline mt-2" type="button" (click)="back()">{{ signInTranslate[language].button_cancel }}</button>
+		</div>
+	</form>
+</section>
+</main>

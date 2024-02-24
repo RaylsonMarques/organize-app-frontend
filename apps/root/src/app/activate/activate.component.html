@@ -1,0 +1,35 @@
+<header class="activate_header">
+	<div class="activate_header__card-info">
+		<h2 class="text-header-title">{{ activateTranslate[language].title }}</h2>
+		<p class="text-header-description">{{ activateTranslate[language].description }}</p>
+	</div>
+
+	<div class="icon">
+		<div class="orange-box-drawer"></div>
+		<div class="purple-box-drawer"></div>
+		<div class="blue-box-drawer"></div>
+	</div>
+</header>
+
+<main class="activate_content">
+<section class="activate_content__section">
+	<form [formGroup]="form" (submit)="submit()">
+		<div class="row">
+			<organize-input-text
+				[form]="form"
+				controlName="code"
+				[label]="activateTranslate[language].code"
+				[value]="form.get('code').value"
+				[maxlength]="6"
+				(keydown)="textTransform($event)"
+				class="col-12 mb-1"
+			></organize-input-text>
+		</div>
+
+		<div class="activate_content__section__buttons">
+			<button class="button button-block button-confirmation-fill" type="submit">{{ activateTranslate[language].button_confirm }}</button>
+			<button class="button button-block button-cancel-outline mt-2" type="button" (click)="back()">{{ activateTranslate[language].button_cancel }}</button>
+		</div>
+	</form>
+</section>
+</main>

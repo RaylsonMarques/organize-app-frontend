@@ -1,0 +1,43 @@
+<nav class="org-paginacao" aria-label="Paginação de resultados">
+	<div></div>
+
+	<ul>
+    <!-- Primeira página -->
+    <li>
+			<button class="org-button first text-center" type="button" data-previous-page="data-previous-page" aria-label="Primieira página" (click)="irParaPrimeiraPagina()">
+				<i class="material-icons">first_page</i>
+			</button>
+		</li>
+
+    <!-- Página anterior -->
+		<li>
+			<button class="org-button text-center" type="button" data-previous-page="data-previous-page" aria-label="Página anterior" (click)="paginaAnterior(paginaAtual - 1)">
+				<i class="material-icons">arrow_back_ios</i>
+			</button>
+		</li>
+
+    <!-- Números das páginas -->
+    <li *ngFor="let pagina of quantidadePaginas">
+      <a class="page" [ngClass]="{ active: pagina === paginaAtual }" (click)="selecionaPagina(pagina)">{{ pagina }}</a>
+    </li>
+
+    <!-- Próxima página -->
+		<li>
+			<button class="org-button text-center" type="button" data-next-page="data-next-page" aria-label="Página seguinte" (click)="proximaPagina(paginaAtual + 1)">
+				<i class="material-icons">arrow_forward_ios</i>
+			</button>
+		</li>
+
+    <!-- Última página -->
+    <li>
+			<button class="org-button last text-center" type="button" data-next-page="data-next-page" aria-label="Última página" (click)="irParaUltimaPagina()">
+				<i class="material-icons">last_page</i>
+			</button>
+		</li>
+	</ul>
+
+	<div class="pagination-information d-none d-sm-flex">
+		<span class="total">{{ totalItens }}</span>
+		&nbsp;itens
+	</div>
+</nav>

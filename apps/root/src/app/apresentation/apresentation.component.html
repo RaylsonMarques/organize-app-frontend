@@ -1,0 +1,22 @@
+<main>
+	<header>
+		<h2>{{ apresentationTranslate[language].title }}</h2>
+		<p>{{ apresentationTranslate[language].description }}</p>
+	</header>
+
+	<footer>
+		<button
+			class="button button-block button-apresentation-fill-light"
+			type="button"
+			(click)="signUp()"
+		>{{ apresentationTranslate[language].sign_up }}</button>
+
+		<p>{{ apresentationTranslate[language].already_member }}</p>
+
+		<button
+			class="button button-block button-apresentation-outline-light"
+			type="button"
+			(click)="signIn()"
+		>{{ apresentationTranslate[language].sign_in }}</button>
+	</footer>
+</main>

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+
+<div mat-dialog-content *ngIf="data.content">
+    {{data.content}}
+</div>
+
+<div mat-dialog-actions class="d-flex flex-column flex-md-row justify-content-end">
+    <button *ngIf="data.cancelButton && data.cancelButton.show" [mat-dialog-close]="data.cancelButton.value" class="button button-cancel-fill">
+        <i *ngIf="data.cancelButton.icon" class="material-icons">{{data.cancelButton.icon}}</i>
+        {{data.cancelButton.label}}
+    </button>
+
+    <button *ngIf="data.okButton && data.okButton.show" [mat-dialog-close]="data.okButton.value" class="mt-2 mt-md-0 button button-confirmation-fill">
+        <i *ngIf="data.okButton.icon" class="material-icons">{{data.okButton.icon}}</i>
+        {{data.okButton.label}}
+    </button>
+</div>

@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+  <mat-form-field class="form-field w-100 organize-input" appearance="outline">
+    <mat-label>
+      {{ label }}
+      <sup *ngIf="required()" class="required-icon">*</sup>
+    </mat-label>
+		<input matInput [matDatepicker]="dp" [formControlName]="controlName" [disabled]="disabled" [max]="dataMaxima" maxlength="10" [readonly]="readonly">
+		<mat-datepicker-toggle matSuffix [for]="dp" [disabled]="readonly"></mat-datepicker-toggle>
+		<mat-datepicker #dp></mat-datepicker>
+
+		<mat-error *ngIf="form.get(controlName).touched && form.get(controlName).invalid">
+			{{ validation() }}
+		</mat-error>
+	</mat-form-field>
+</div>

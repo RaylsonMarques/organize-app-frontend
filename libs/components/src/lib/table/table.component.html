@@ -1,0 +1,73 @@
+<div class="mb-2">
+	<h5 *ngIf="title">{{ title }}</h5>
+
+	<table mat-table [dataSource]="rows" matSort (matSortChange)="sortTable($event)">
+		<ng-container *ngFor="let column of header" [matColumnDef]="column.field">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header >
+				<!-- <input  type="checkbox" *ngIf="column.title == 'Tipo de Solicitação'"> -->
+				{{ column.title }}
+			</th>
+			<ng-template *ngIf="column?.actions; then actions; else content"></ng-template>
+			<ng-template #content>
+				<td mat-cell *matCellDef="let row; let i = index">
+
+					<!-- <input  type="checkbox" *ngIf="column.title == 'Tipo de Solicitação'"> -->
+
+					{{ renderContent(i, row, column.field, column) }}
+				</td>
+			</ng-template>
+			<ng-template #actions>
+				<td mat-cell *matCellDef="let row; let i = index">
+					<button
+						*ngIf="showActionButton('preview', column)"
+						(click)="emitPreview(i, row, column.field, column)"
+						type="button"
+						matTooltip="Visualizar"
+						matTooltipClass="toolTip"
+						class="org-btn-small"
+					>
+						<i class="material-icons">visibility</i>
+					</button>
+					<button
+						*ngIf="showActionButton('edit', column)"
+						(click)="emitEdit(i, row, column.field, column)"
+						type="button"
+						matTooltip="Editar"
+						matTooltipClass="toolTip"
+						class="org-btn-small"
+					>
+						<i class="material-icons">edit</i>
+					</button>
+					<button
+						*ngIf="showActionButton('delete', column)"
+						(click)="askDelete(i, row, column.field, column)"
+						type="button"
+						matTooltip="Deletar"
+						matTooltipClass="toolTip"
+						class="org-btn-small"
+					>
+						<i class="material-icons">delete</i>
+					</button>
+					<ng-container *ngFor="let btn in column">
+						<button
+							*ngIf="showCustomActionButton(btn, column)"
+							(click)="emitCustomBtn(i, row, btn)"
+							type="button"
+							matTooltip="{{ btn?.title }}"
+							matTooltipClass="toolTip"
+							class="org-btn-small"
+						>
+							<i class="material-icons">{{ btn.icon }}</i>
+							{{ btn.label }}
+						</button>
+					</ng-container>
+				</td>
+			</ng-template>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+		<!-- <mat-paginator *ngIf="paginacao" [lenght]="paginacao.totalElements" [pageSizeOptions]="[5, 10, 25, 50, 100]" aria-label="Selecione a página" (page)="pageEvent = $event; emitNextPage()"></mat-paginator> -->
+	</table>
+</div>

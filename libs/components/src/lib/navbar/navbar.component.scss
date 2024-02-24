@@ -1,0 +1,25 @@
+.org-toggle {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  background: var(--blue-light);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.active {
+    background: var(--pink-light);
+  }
+
+  i {
+    position: absolute;
+    color: var(--white);
+    font-size: 34px;
+  }
+}

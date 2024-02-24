@@ -1,0 +1,56 @@
+.sign-in_header {
+	position: relative;
+
+	background-color: var(--color-base-items);
+
+	box-sizing: border-box;
+	border-radius: 0 0 100px 100px;
+	padding: 1rem 1rem 3rem 1rem;
+	margin-bottom: 3rem;
+
+	h2 {
+		color: var(--color-grey-100) !important;
+	}
+
+	p {
+		color: var(--color-grey-200);
+	}
+}
+
+.sign-in_content {
+	position: relative;
+
+	box-sizing: border-box;
+	padding: 0 1rem 3rem 1rem;
+
+	.standard {
+		color: var(--color-grey-800);
+	}
+
+	.invalid {
+		color: var(--color-red);
+		filter: brightness(0.8);
+	}
+
+	.valid {
+		color: var(--color-green);
+		filter: brightness(0.8);
+	}
+
+	.sign-in_content__section__buttons {
+		position: fixed;
+		bottom: 0;
+		left: 1rem;
+		width: calc(100% - 2rem);
+
+		text-align: center;
+
+		p {
+			margin-top: 1rem;
+		}
+
+		.button-apresentation-outline-light {
+			color: var(--color-primary);
+		}
+	}
+}

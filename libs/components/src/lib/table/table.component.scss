@@ -1,0 +1,57 @@
+h5 {
+	margin-bottom: 1rem;
+	font-weight: 500;
+}
+
+.mat-table thead,
+.mat-header-row,
+[mat-header-row] {
+	th {
+		font-weight: bold !important;
+		font-size: 0.875rem;
+	}
+}
+
+.mat-table {
+  background: var(--color-white);
+	width: 100%;
+  border-radius: var(--card-border-radius) !important;
+  text-align: center;
+  box-shadow: var(--box-shadow) !important;
+  transition: all 300ms ease;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+	// .btn-action {
+	// 	border: none;
+	// 	box-shadow: none;
+	// 	color: var(--blue-light);
+	// 	transition: filter 0.2s;
+
+	// 	&:hover {
+	// 		filter: brightness(0.9);
+	// 	}
+
+	// 	& + .btn-action {
+	// 		margin-left: 10px;
+	// 	}
+	// }
+
+	// .material-icons {
+	// 	color: var(--blue-light);
+	// 	font-size: 1.2rem;
+	// }
+
+	// input[type="checkbox"]{
+	// 	margin-right: 20px;
+	// }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .mat-table {
+    width: 83vw;
+  }
+}
